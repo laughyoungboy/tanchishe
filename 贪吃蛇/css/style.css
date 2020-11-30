@@ -1,0 +1,147 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.page{
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+body{
+	font-size: 0.16rem;
+}
+.startGame{
+	/* display: none; */
+	background: purple;
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+}
+
+.startBtn,.reStartBtn{
+	width:2rem;
+	height: 0.5rem;
+	text-align: center;
+	line-height: 0.5rem;
+	background: deepskyblue;
+	color: #fff;
+}
+
+.endGame{
+	display: none;
+	/* display:flex; */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: lightsalmon;
+}
+.endGame h1{
+	margin: 1rem 0;
+	color: #fff;
+}
+
+.gaming{
+	display: none;
+	background: black;
+	color: #fff;
+	
+}
+.gaming .score{
+	display: flex;
+	justify-content: space-between;
+	height: 0.5rem;
+	align-items: center;
+	width: 100vw;
+	padding: 0 0.25rem;
+}
+
+.gaming .score .pauseBtn{
+	
+	width: 0.8rem;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	background: #999;
+	text-align: center;
+	
+}
+
+.gaming .mainGame{
+	
+	/* 15*20 */
+	width: 3.45rem;
+	height:4.6rem ;
+	background: #555;
+	margin: 0.3rem auto;
+	display: flex;
+	flex-wrap: wrap;
+	border-top: 1px solid #ccc;
+	border-left: 1px solid #ccc;
+	box-sizing: content-box;
+}
+.gaming .mainGame .gezi{
+	width: 0.23rem;
+	height: 0.23rem;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.gaming .mainGame .gezi.snake{
+	width: 0.23rem;
+	height: 0.23rem;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background-color: #fff;
+}
+.gaming .mainGame .gezi.food{
+	width: 0.23rem;
+	height: 0.23rem;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	/* background-color: orangered; */
+}
+
+.gaming .mainGame .gezi.food:before{
+	width: 100%;
+	height: 100%;
+	content: "";
+	display: block;
+	background:yellow;
+	animation: food 1s alternate infinite ;
+	box-shadow: 0 0 10px #ffffcc;
+}
+.gaming .mainGame .gezi.food[data-food=redStar]:before{
+	background:deeppink;
+}
+@keyframes food{
+	from{
+		transform: scale(1) rotate(0deg);
+	}
+	to{
+		transform: scale(0.5) rotate(360deg);
+	}
+}
+
+
+.gaming .mainGame .gezi.snake:before{
+	content:"" ;
+	display: block;
+	
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+	animation: snake 0.4s;
+	box-sizing: border-box;
+}
+@keyframes snake{
+	from{
+		background: #fff;
+		box-shadow:0 0 15px rgba(255,255,255,1);
+	}
+	to{
+		background: #ccc;
+		box-shadow:0 0 15px rgba(255,255,255,0.5);
+	}
+}
